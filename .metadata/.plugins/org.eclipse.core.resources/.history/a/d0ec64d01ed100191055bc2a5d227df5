@@ -1,0 +1,5 @@
+package com.laptrinhjavaweb.repository;
+
+public interface JpaRepository<T> {
+	List<T> findAll();
+}

@@ -1,0 +1,16 @@
+package com.laptrinhjavaweb.service.impl;
+
+import java.util.List;
+
+import com.laptrinhjavaweb.dto.UserDTO;
+import com.laptrinhjavaweb.service.IUserService;
+
+public class UserService implements IUserService{
+
+	@Override
+	public List<UserDTO> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

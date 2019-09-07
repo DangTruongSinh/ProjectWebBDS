@@ -1,0 +1,12 @@
+package com.laptrinhjavaweb.repository.impl;
+
+import java.sql.Connection;
+import java.util.ResourceBundle;
+
+public class EntityManagerFactory {
+	private ResourceBundle resource =  ResourceBundle.getBundle("db.properties");
+	public static Connection getConnection()
+	{
+		
+	}
+}

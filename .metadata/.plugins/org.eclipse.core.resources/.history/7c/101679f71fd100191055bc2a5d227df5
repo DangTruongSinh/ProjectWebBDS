@@ -1,0 +1,5 @@
+package com.laptrinhjavaweb.anotation;
+
+public @interface Table{
+	String name() default "";
+}

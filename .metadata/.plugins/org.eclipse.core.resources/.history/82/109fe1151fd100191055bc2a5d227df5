@@ -1,0 +1,15 @@
+package com.laptrinhjavaweb.repository.impl;
+
+import java.util.List;
+
+import com.laptrinhjavaweb.repository.JpaRepository;
+
+public class SimpleJpaRepository<T> implements JpaRepository<T>{
+
+	@Override
+	public List<T> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
