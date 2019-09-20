@@ -1,0 +1,54 @@
+package com.laptrinhjavaweb.builder;
+
+public class BuilderBuilding {
+	private String name;
+	private String district;
+	private int buildingarea;
+	private int numberofbasement;
+	private String type ;
+	public String getName() {
+		return name;
+	}
+	public String getDistrict() {
+		return district;
+	}
+	public int getBuildingarea() {
+		return buildingarea;
+	}
+	public int getNumberofbasement() {
+		return numberofbasement;
+	}
+	public String getType() {
+		return type;
+	}
+	public static class Builder{
+		private String name;
+		private String district;
+		private int buildingarea;
+		private int numberofbasement;
+		private String type;
+		public Builder setName(String name) {
+			this.name = name;
+			return this;
+		}
+		public Builder setDistrict(String district) {
+			this.district = district;
+			return this;
+		}
+		public Builder setBuildingarea(int buildingarea) {
+			this.buildingarea = buildingarea;
+			return this;
+		}
+		public Builder setNumberofbasement(int numberofbasement) {
+			this.numberofbasement = numberofbasement;
+			return this;
+		}
+		public Builder setType(String type) {
+			this.type = type;
+			return this;
+		}
+		public BuilderBuilding build(){
+			return new BuilderBuilding(this);
+		}
+	}
+}

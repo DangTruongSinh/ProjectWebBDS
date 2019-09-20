@@ -1,13 +1,11 @@
 package com.laptrinhjavaweb.entity;
 
-import java.util.Date;
-
 import com.laptrinhjavaweb.anotation.Column;
 import com.laptrinhjavaweb.anotation.Entity;
 import com.laptrinhjavaweb.anotation.Table;
 @Entity
 @Table(name = "building")
-public class BuildingEntity {
+public class BuildingEntity extends CommonEntity{
 	@Column(name = "id")
 	private Long id;
 	
@@ -71,17 +69,7 @@ public class BuildingEntity {
 	@Column(name = "type")
 	private String type;
 	
-	@Column(name = "createddate")
-	private Date createdDate;
 	
-	@Column(name = "modifieddate")
-	private Date modifiedDate;
-	
-	@Column(name = "createdby")
-	private Date createdBy;
-	
-	@Column(name = "modifiedby")
-	private String modifiedBy;
 
 	public String getName() {
 		return name;
@@ -251,36 +239,6 @@ public class BuildingEntity {
 		this.type = type;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
-
-	public void setModifiedDate(Date modifiedDate) {
-		this.modifiedDate = modifiedDate;
-	}
-
-	public String getModifiedBy() {
-		return modifiedBy;
-	}
-
-	public void setModifiedBy(String modifiedBy) {
-		this.modifiedBy = modifiedBy;
-	}
-
-	public Date getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(Date createdBy) {
-		this.createdBy = createdBy;
-	}
+	
 
 }

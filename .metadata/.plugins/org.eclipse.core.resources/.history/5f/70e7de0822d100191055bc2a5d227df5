@@ -1,7 +1,0 @@
-package com.laptrinhjavaweb.service.impl;
-
-import com.laptrinhjavaweb.service.IBuildingService;
-
-public class BuildingService implements IBuildingService{
-	
-}

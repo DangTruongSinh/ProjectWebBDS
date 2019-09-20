@@ -71,7 +71,7 @@ public class BuildingDTO {
 
 	private Date modifiedDate;
 
-	private Date createdBy;
+	private String createdBy;
 	
 	private String modifiedBy;
 
@@ -259,11 +259,11 @@ public class BuildingDTO {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Date getCreatedBy() {
+	public String getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(Date createdBy) {
+	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
 
