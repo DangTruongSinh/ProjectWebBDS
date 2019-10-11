@@ -74,9 +74,9 @@ public class SimpleJpaRepository<T> implements JpaRepository<T>{
 		return findAll(map,null,sql);
 	}
 	@Override
-	public List<T> findAll(String sql,PageModel page) {
-		if(page != null)
-			sql += " limit " + page.getOffset() + ","+page.getLimit();
+	public List<T> findAll(String sql,Object ...page) {
+		if(page.length > 0)
+			sql += " limit " + ((PageModel) page[0]).getOffset() + ","+((PageModel) page[0]).getLimit();
 		return findAllBySQL(sql);
 	}
 	private List<T> findAllBySQL(String sql)

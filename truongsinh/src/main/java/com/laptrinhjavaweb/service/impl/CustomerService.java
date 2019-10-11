@@ -1,20 +1,15 @@
 package com.laptrinhjavaweb.service.impl;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.laptrinhjavaweb.buildersearch.CustomerSearchBuilder;
 import com.laptrinhjavaweb.dto.CustomerDTO;
 import com.laptrinhjavaweb.entity.CustomerEntity;
-import com.laptrinhjavaweb.page.PageModel;
-import com.laptrinhjavaweb.repository.ICustomerRepository;
 import com.laptrinhjavaweb.repository.impl.CustomerRepository;
 import com.laptrinhjavaweb.service.ICustomerService;
-import com.laptrinhjavaweb.utils.Convert;
 
-public class CustomerService implements ICustomerService{
-	private ICustomerRepository icustomer = new CustomerRepository();
+public class CustomerService extends SimpleService<CustomerRepository, CustomerEntity, CustomerSearchBuilder, CustomerDTO>
+implements ICustomerService{
+	// Trong lớp SimpleService cung cấp 2 hàm chung. 
+	/*private ICustomerRepository icustomer = new CustomerRepository();
 	@Override
 	public List<CustomerDTO> findAll(CustomerSearchBuilder customer, PageModel page) {
 		HashMap<String,Object> map = Convert.objectToMap(customer);
@@ -30,5 +25,5 @@ public class CustomerService implements ICustomerService{
 		return list.stream().map(x ->Convert.entityToDTO(x,CustomerDTO.class))
 				.collect(Collectors.toList());
 	}
-
+*/
 }
