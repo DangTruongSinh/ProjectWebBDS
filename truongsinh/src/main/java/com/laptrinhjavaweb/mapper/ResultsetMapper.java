@@ -16,10 +16,11 @@ public class ResultsetMapper<T> {
 	private boolean flag;
 	public List<T> mapRow(ResultSet resultSet,Class<?> zClass)
 	{
+		List<T> listResult = new ArrayList<T>();
 		try {
 			ResultSetMetaData metadata = resultSet.getMetaData();
 			Field[] fields = zClass.getDeclaredFields();
-			List<T> listResult = new ArrayList<T>();
+			
 			DataOfColumn columData = new DataOfColumn(); 
 			while(resultSet.next())
 			{
@@ -32,12 +33,12 @@ public class ResultsetMapper<T> {
 					Object columnValue = resultSet.getObject(i+1);
 					columData.setColumnName(columnName);
 					columData.setColumnValue(columnValue);
-					mapDataToColum(fields,columData,object);
+					mapDataToColumn(fields,columData,object);
 					Class<?> parentT = zClass.getSuperclass();
 					while(parentT != null)
 					{
 						Field[] fieldsParent = parentT.getDeclaredFields();
-						mapDataToColum(fieldsParent,columData,object);
+						mapDataToColumn(fieldsParent,columData,object);
 						parentT = parentT.getSuperclass();
 					}
 					
@@ -45,7 +46,7 @@ public class ResultsetMapper<T> {
 				listResult.add(object);
 				
 			}
-			return listResult;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,9 +57,9 @@ public class ResultsetMapper<T> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return listResult;
 	}
-	private void mapDataToColum(Field fields[],DataOfColumn colum,Object object)
+	private void mapDataToColumn(Field fields[],DataOfColumn colum,Object object)
 	{
 		try {
 			if(!flag)

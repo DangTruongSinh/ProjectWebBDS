@@ -1,9 +1,0 @@
-package com.laptrinhjavaweb.repository;
-
-import java.util.List;
-
-import com.laptrinhjavaweb.page.PageBuilding;
-
-public interface JpaRepository<T> {
-	List<T> findAll();
-}

@@ -5,9 +5,10 @@ public class PageModel {
 	private int limit;
 	private int page;
 
-	public PageModel(int limit, int page) {
+	public PageModel(int page, int limit) {
 		this.limit = limit;
 		this.page = page;
+		this.offset = (this.page-1)*this.limit;
 	}
 	public int getOffset() {
 		return offset;
@@ -23,7 +24,7 @@ public class PageModel {
 	}
 	public void setPage(int page) {
 		this.page = page;
-		this.offset = (this.page-1)*this.limit;
+		
 	}
 	
 }

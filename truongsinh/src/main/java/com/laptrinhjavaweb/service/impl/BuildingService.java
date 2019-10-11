@@ -4,29 +4,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.laptrinhjavaweb.builder.BuilderBuilding;
-import com.laptrinhjavaweb.converter.BuildingConverter;
+import com.laptrinhjavaweb.buildersearch.BuildingSearchBuilder;
 import com.laptrinhjavaweb.dto.BuildingDTO;
 import com.laptrinhjavaweb.entity.BuildingEntity;
 import com.laptrinhjavaweb.page.PageModel;
 import com.laptrinhjavaweb.repository.IBuildingRepository;
 import com.laptrinhjavaweb.repository.impl.BuildingRepository;
 import com.laptrinhjavaweb.service.IBuildingService;
+import com.laptrinhjavaweb.utils.Convert;
 
 public class BuildingService implements IBuildingService{
 	private IBuildingRepository ibuilding = new BuildingRepository();
-	private BuildingConverter convert = new BuildingConverter();
 	@Override
-	public List<BuildingDTO> findAll(BuilderBuilding building,PageModel page) {
-		// TODO Auto-generated method stub
-		HashMap<String,Object> map = new HashMap<String, Object>();
-//		map.put("name", building.getName());
-//		map.put("district", building.getDistrict());
-//		map.put("buildingArea", building.getBuildingarea());
-//		map.put("numberOfBasement", building.getNumberofbasement());
-		map.put("type", building.getType());
-		List<BuildingEntity> list = ibuilding.findAll(map,page);
-		return list.stream().map(x -> convert.converter(x)).collect(Collectors.toList());
+	public List<BuildingDTO> findAll(BuildingSearchBuilder building,PageModel page) {
+		HashMap<String,Object> map = Convert.objectToMap(building);
+		List<BuildingEntity> list = ibuilding.findAll(map,page,building);
+		return list.stream().map(x ->Convert.entityToDTO(x,BuildingDTO.class))
+				.collect(Collectors.toList());
 	}
-	
+	@Override
+	public List<BuildingDTO> findAll(BuildingSearchBuilder building) {
+		HashMap<String,Object> map = Convert.objectToMap(building);
+		List<BuildingEntity> list = ibuilding.findAll(map,building);
+		return list.stream().map(x ->Convert.entityToDTO(x,BuildingDTO.class))
+				.collect(Collectors.toList());
+	}
 }

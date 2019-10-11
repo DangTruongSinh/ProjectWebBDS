@@ -1,9 +1,6 @@
 package com.laptrinhjavaweb.dto;
 
-
-import java.util.Date;
-
-public class BuildingDTO {
+public class BuildingDTO extends AbstractDTO{
 	private Long id;
 	
 	
@@ -63,17 +60,24 @@ public class BuildingDTO {
 	private String managerPhone;
 	
 
-	private String type;
+	private String[] builddingType;
 	
-
-	private Date createdDate;
+	private Integer costRentFrom;
+	private Integer costRentTo;
 	
-
-	private Date modifiedDate;
-
-	private String createdBy;
+	private Integer areaRentFrom;
+	private Integer areaRentTo;
 	
-	private String modifiedBy;
+	private Long staffid ;
+	
+	
+	public Long getStaffid() {
+		return staffid;
+	}
+
+	public void setStaffid(Long staffid) {
+		this.staffid = staffid;
+	}
 
 	public Long getId() {
 		return id;
@@ -235,44 +239,57 @@ public class BuildingDTO {
 		this.managerPhone = managerPhone;
 	}
 
-	public String getType() {
-		return type;
+	
+
+	public String[] getType() {
+		return builddingType;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setType(String[] type) {
+		this.builddingType = type;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
+	public Integer getCostRentFrom() {
+		return costRentFrom;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setCostRentFrom(Integer costRentFrom) {
+		this.costRentFrom = costRentFrom;
 	}
 
-	public Date getModifiedDate() {
-		return modifiedDate;
+	public Integer getCostRentTo() {
+		return costRentTo;
 	}
 
-	public void setModifiedDate(Date modifiedDate) {
-		this.modifiedDate = modifiedDate;
+	public void setCostRentTo(Integer costRentTo) {
+		this.costRentTo = costRentTo;
 	}
 
-	public String getCreatedBy() {
-		return createdBy;
+	public String[] getBuilddingType() {
+		return builddingType;
 	}
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
+	public void setBuilddingType(String[] builddingType) {
+		this.builddingType = builddingType;
 	}
 
-	public String getModifiedBy() {
-		return modifiedBy;
+	public Integer getAreaRentFrom() {
+		return areaRentFrom;
 	}
 
-	public void setModifiedBy(String modifiedBy) {
-		this.modifiedBy = modifiedBy;
+	public void setAreaRentFrom(Integer areaRentFrom) {
+		this.areaRentFrom = areaRentFrom;
 	}
+
+	public Integer getAreaRentTo() {
+		return areaRentTo;
+	}
+
+	public void setAreaRentTo(Integer areaRentTo) {
+		this.areaRentTo = areaRentTo;
+	}
+
+	
+
 	
 }
