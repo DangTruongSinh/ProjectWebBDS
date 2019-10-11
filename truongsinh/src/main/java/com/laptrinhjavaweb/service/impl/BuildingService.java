@@ -8,6 +8,7 @@ import com.laptrinhjavaweb.service.IBuildingService;
 
 public class BuildingService extends SimpleService<BuildingRepository, BuildingEntity, BuildingSearchBuilder, BuildingDTO> 
 implements IBuildingService{
+	// Trong lớp SimpleService cung cấp 2 hàm chung. 
 /*	private IBuildingRepository ibuilding = new BuildingRepository();
 	@Override
 	public List<BuildingDTO> findAll(BuildingSearchBuilder building,PageModel page) {

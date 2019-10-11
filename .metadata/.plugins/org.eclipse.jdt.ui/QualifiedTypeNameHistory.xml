@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.laptrinhjavaweb.page.PageBuilding"/>
-    <fullyQualifiedTypeName name="com.laptrinhjavaweb.builder.BuilderBuilding.Builder"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.builder.BuilderBuilding"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
     <fullyQualifiedTypeName name="java.lang.Boolean"/>
@@ -16,14 +14,11 @@
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.anotation.Ignore"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.buildersearch.BuildingSearchBuilder.Builder"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.lang.Class"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.converter.BuildingConverter"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.utils.ConvertObjectToMap"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.utils.ConvertEntityToDTO"/>
-    <fullyQualifiedTypeName name="com.laptrinhjavaweb.anotation.Special"/>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.CommonEntity"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.dto.AbstractDTO"/>
@@ -41,13 +36,10 @@
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.service.AbstractService"/>
     <fullyQualifiedTypeName name="Respository"/>
-    <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.impl.BuildingRepository"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.BuildingEntity"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.buildersearch.BuildingSearchBuilder"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.dto.BuildingDTO"/>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.service.impl.SimpleService"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.impl.CustomerRepository"/>
@@ -60,4 +52,12 @@
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.utils.Convert"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="com.laptrinhjavaweb.buildersearch.CustomerSearchBuilder"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
+    <fullyQualifiedTypeName name="com.laptrinhjavaweb.anotation.Special"/>
+    <fullyQualifiedTypeName name="com.laptrinhjavaweb.utils.Cha"/>
+    <fullyQualifiedTypeName name="com.laptrinhjavaweb.utils.ConT"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
+    <fullyQualifiedTypeName name="java.lang.Class"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
 </qualifiedTypeNameHistroy>
