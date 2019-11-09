@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -107,4 +108,57 @@ public class SimpleService<Respository, Entity, SearchBuilder, DTO> implements A
 		}
 		return null;
 	}
+
+	@Override
+	public DTO save(DTO dto) {
+		return upDateORSave(dto,"save");
+		
+	}
+	@Override
+	public DTO update(DTO dto) {
+		return upDateORSave(dto,"update");
+	}
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	private DTO upDateORSave(DTO dto, String method) {
+		HashMap<String, Object> map = Convert.objectToMap(dto);
+		if(method.equalsIgnoreCase("save"))
+			map.put("createdDate",LocalDateTime.now());
+		else
+			map.put("modifiedDate",LocalDateTime.now());
+		Respository respository;
+		try {
+			respository = classRespository.newInstance();
+			Entity entity = classEntity.newInstance();
+			Method methodSaveOrUpdate = classRespository.getMethod(method,HashMap.class);
+			entity = (Entity) methodSaveOrUpdate.invoke(respository,map);
+			return Convert.entityToDTO(entity, classDTO);
+		} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | SecurityException | IllegalArgumentException | InvocationTargetException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public String delete(DTO dto) {
+		Respository respository;
+		try {
+			respository = classRespository.newInstance();
+			Method methodSaveOrUpdate = classRespository.getMethod("delete",Long.class);
+			Field field = classDTO.getDeclaredField("id");
+			field.setAccessible(true);
+			long id = (long) field.get(dto);
+			boolean result = (boolean) methodSaveOrUpdate.invoke(respository,id);
+			if(result)
+				return "{\"success\":true}";
+		} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchFieldException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "{\"success\":false}";
+	}
+
+	
 }

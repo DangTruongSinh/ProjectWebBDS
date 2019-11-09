@@ -55,7 +55,8 @@ public class Convert {
 			if(!field.isAnnotationPresent(Special.class))
 			{
 				try {
-					map.put(field.getName(), field.get(x));
+					if(field.get(x) != null)
+						map.put(field.getName(), field.get(x));
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {

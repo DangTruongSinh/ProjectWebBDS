@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laptrinhjavaweb.buildersearch.BuildingSearchBuilder;
 import com.laptrinhjavaweb.dto.BuildingDTO;
@@ -16,15 +17,28 @@ import com.laptrinhjavaweb.page.PageModel;
 import com.laptrinhjavaweb.service.IBuildingService;
 import com.laptrinhjavaweb.service.impl.BuildingService;
 import com.laptrinhjavaweb.utils.FormUtil;
+import com.laptrinhjavaweb.utils.HttpUtil;
 
 @WebServlet(urlPatterns = { "/api-building" })
 public class BuildingAPI extends HttpServlet {
 	IBuildingService iBuildingService = new BuildingService();
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("application/json");
+		ObjectMapper mapper = new ObjectMapper();
+		BuildingDTO buildingDTO = HttpUtil.of(req.getReader()).toModel(BuildingDTO.class);
+		mapper.writeValue(resp.getOutputStream(), iBuildingService.update(buildingDTO));
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("application/json");
+		ObjectMapper mapper = new ObjectMapper();
+		BuildingDTO buildingDTO = HttpUtil.of(req.getReader()).toModel(BuildingDTO.class);
+		mapper.writeValue(resp.getOutputStream(), iBuildingService.save(buildingDTO));
+	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
@@ -57,5 +71,13 @@ public class BuildingAPI extends HttpServlet {
 		}
 		mapper.writeValue(resp.getOutputStream(), buildingDTOs);
 	}
-	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("application/json");
+		ObjectMapper mapper = new ObjectMapper();
+		BuildingDTO buildingDTO = HttpUtil.of(req.getReader()).toModel(BuildingDTO.class);
+		JsonNode actualObj = mapper.readTree(iBuildingService.delete(buildingDTO));
+		mapper.writeValue(resp.getOutputStream(), actualObj);
+	}
 }

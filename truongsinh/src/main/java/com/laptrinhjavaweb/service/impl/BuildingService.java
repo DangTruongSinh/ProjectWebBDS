@@ -8,20 +8,4 @@ import com.laptrinhjavaweb.service.IBuildingService;
 
 public class BuildingService extends SimpleService<BuildingRepository, BuildingEntity, BuildingSearchBuilder, BuildingDTO> 
 implements IBuildingService{
-	// Trong lớp SimpleService cung cấp 2 hàm chung. 
-/*	private IBuildingRepository ibuilding = new BuildingRepository();
-	@Override
-	public List<BuildingDTO> findAll(BuildingSearchBuilder building,PageModel page) {
-		HashMap<String,Object> map = Convert.objectToMap(building);
-		List<BuildingEntity> list = ibuilding.findAll(map,page,building);
-		return list.stream().map(x ->Convert.entityToDTO(x,BuildingDTO.class))
-				.collect(Collectors.toList());
-	}*/
-/*	@Override
-	public List<BuildingDTO> findAll(BuildingSearchBuilder building) {
-		HashMap<String,Object> map = Convert.objectToMap(building);
-		List<BuildingEntity> list = ibuilding.findAll(map,building);
-		return list.stream().map(x ->Convert.entityToDTO(x,BuildingDTO.class))
-				.collect(Collectors.toList());
-	}*/
 }

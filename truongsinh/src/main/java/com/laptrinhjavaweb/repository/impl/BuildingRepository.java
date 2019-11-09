@@ -32,7 +32,7 @@ public class BuildingRepository extends SimpleJpaRepository<BuildingEntity> impl
 		{
 			sql.append(" and s.staffid = " + searchBuilder.getStaffid());
 		}
-		sql.append(createSQL(map));
+		sql.append(createSQLForFind(map));
 		sql.append(specialSql(searchBuilder));
 		return sql.toString();
 	}
